@@ -1,0 +1,120 @@
+/* Basic resets */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+body {
+  margin: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 130%;
+  line-height: 150%;
+}
+
+main {
+  border: 2px solid grey;
+}
+
+.calendarTop {
+  margin: 1em 0;
+  border-bottom: 4px solid #f0f0f0;
+}
+
+.month-indicator {
+  text-align: center;
+  padding: 6px;
+  margin: 6px;
+}
+
+#month {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.month-indicator {
+  font-size: 1.2em;
+}
+
+/* Submit button */
+#submitDate {
+  background-color: rgb(25, 186, 25);
+  border: none;
+  font-size: 1em;
+  color: white;
+  border-radius: 0;
+  padding: .3em .6em;
+  margin-left: 1em;
+}
+
+/* Date field */
+#dateInputField {
+  padding: 1em;
+  margin-left:1em;
+  font-size: 1em;
+  color: rgb(169, 169, 198);
+  font-weight: bold;
+  border: 4px solid #b1b1b1;
+}
+
+#submitDate:hover {
+  background-color: green;
+}
+
+.day-of-week,
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 2px solid grey;
+}
+
+.day-of-week > * {
+  font-size: 0.7em;
+  font-weight: 500;
+  text-align: center;
+  border-top: 1px solid black;
+}
+
+/* 
+Positioning the first day 
+Change the value of grid-column property to indicate where the first day starts
+Doing this with JS to add inline styling depending on the 
+
+.date-grid button:first-child {
+  grid-column: 2; /* First day starts in column 1 (Sunday)  
+}
+*/
+
+.date-grid button {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 10vh;
+  border: 4px solid rgb(255, 254, 254);
+  background-color: #f0f0f0;
+  font-size: 1em;
+}
+
+.date-grid button.bgColorOn {
+  background-color: rgb(189, 236, 229);
+}
+
+.date-grid button.bgColorOff {
+  background-color: #f0f0f0;
+}
+
+#dayThirtyOne {
+  background-color: #f0f0f0;
+}
+
+/* Media Queries */
+
+@media print {
+  .date-grid button {
+    height: 15vh;
+    margin: 0;
+  }
+}
