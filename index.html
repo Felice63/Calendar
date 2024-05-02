@@ -16,8 +16,9 @@
               <span id="numOfDays"></span>
             </div>
             <div>
-              <span>Input a specific date</span>
-              <input type="date" id="dateInputField">
+              <span>Choose a date</span>
+              <!-- The type="datetime-local" attribute can help reduce JavaScript Date Object errors when enumerating month number (for example, January has Month number 0), but you need to handle validation, time zone adjustments, and fallbacks for unsupported browsers in your JavaScript code. -->
+              <input type="datetime-local" id="dateInputField">
               <button id="submitDate">Submit</button>
             </div>                
           </header>
