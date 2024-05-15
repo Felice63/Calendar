@@ -28,6 +28,7 @@ main {
   text-align: center;
   padding: 6px;
   margin: 6px;
+  font-size: 1.2em;
 }
 
 #month {
@@ -35,9 +36,6 @@ main {
   font-weight: bold;
 }
 
-.month-indicator {
-  font-size: 1.2em;
-}
 
 /* Submit button */
 #submitDate {
@@ -116,5 +114,16 @@ Doing this with JS to add inline styling depending on the
   .date-grid button {
     height: 15vh;
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .month-indicator {
+    display: flex;
+    flex-direction: column;
+  }
+  #dateInputField {
+    margin: 1em 0;
+    width: 100%;
   }
 }

@@ -3,7 +3,7 @@
 // 3600000 ms = 1 hr
 // -----------------------------------
 
-// Make the Button 31 variable to control whether a month having 31 days instead of 30 will display. This will be called in the conditional embedded in th callback
+// Make the Button 31 variable to control whether a month having 31 days instead of 30 will display. This will be called in the conditional embedded in the callback
 const btnThirtyOne = document.querySelector("#dayThirtyOne");
 
 // Get the HTML element with ID of month
@@ -38,8 +38,8 @@ function showDate() {
   // GET the CURRENT MONTH NUMBER
   // Add 1 because January is month number 0
   // We need the .getMonth() + 1 method so that the month and starting day will be correct
-  let currentMonthNum = dateInput.getMonth();
-  console.log(currentMonthNum, dateInput.getDate())
+  let currentMonthNum = dateInput.getMonth()+1;
+  console.log(`Current month num is ${currentMonthNum}, date input plus 1 ${dateInput.getDate()}`)
 
   // Get the current month relative to the array, calling its index number and value. Using the dateInput varialble here
   let currentMonth = months[dateInput.getMonth()];
@@ -58,12 +58,12 @@ function showDate() {
 
   // Create a conditional to detect the number of days in the current month, then append the extra day (day 31) to the calendar, the default being 30 days. The variable is in global scope at the top of the script.
 
-  if (numDaysInMonth(currentYear, currentMonthNum) === 30) {
+  if (numDaysInMonth(currentYear, currentMonthNum) === 31) {
     btnThirtyOne.innerHTML =`<time datetime="${dateInput}">31</time>`;
-    // btnThirtyOne.style.backgroundColor = `#f0f0f0;`;
+    btnThirtyOne.style.display = `flex`;
   } else {
     btnThirtyOne.innerHTML =`<time datetime="${dateInput}"></time>`;
-    // btnThirtyOne.style.backgroundColor = `white`;
+    btnThirtyOne.style.display = `none`;
   };
 
 // Set up the CSS grid to switch over to the column respresented dependent on the First day of the month; ie Sunday = 1, Monday = 2, etc. Need to set the start day of the month and add the grid-column class to the index of the month's start day, plus 1
