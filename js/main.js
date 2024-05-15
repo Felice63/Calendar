@@ -3,11 +3,23 @@
 // 3600000 ms = 1 hr
 // -----------------------------------
 
-// Make the Button 31 variable to control whether a month having 31 days instead of 30 will display. This will be called in the conditional embedded in the callback
-const btnThirtyOne = document.querySelector("#dayThirtyOne");
+// Get the current date and time
+let now = new Date();
 
 // Get the HTML element with ID of month
 let monthAndYear = document.querySelector(`#month`);
+
+// Set the innerHTML of the monthAndYear element to the current date
+// This apears at the top of the calendar inside the section with class="calendarTop"
+monthAndYear.innerHTML = now.toLocaleDateString(`en-US`, {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// Make the Button 31 variable to control whether a month having 31 days instead of 30 will display. This will be called in the conditional embedded in the showDate() callback
+const btnThirtyOne = document.querySelector("#dayThirtyOne");
 
 // Initiate the inputDate Field's submit button
 const submitDate = document.querySelector(`#submitDate`)
@@ -31,15 +43,15 @@ function showDate() {
   let formattedDate = `${dateInput.toLocaleDateString('en-US', { month: 'long' })} ${dateInput.getDate()} ${dateInput.getFullYear()}`;
 
   console.log(`${formattedDate} is the date, and it is a ${typeof(formattedDate)}`);
-
   
+  // Add the formatted date to the monthAndYear element, which is the element with id="month"
   monthAndYear.innerHTML = `${formattedDate}`
 
   // GET the CURRENT MONTH NUMBER
   // Add 1 because January is month number 0
   // We need the .getMonth() + 1 method so that the month and starting day will be correct
   let currentMonthNum = dateInput.getMonth()+1;
-  console.log(`Current month num is ${currentMonthNum}, date input plus 1 ${dateInput.getDate()}`)
+  console.log(`Current month num is ${currentMonthNum}, date input plus 1 is ${dateInput.getDate()}`)
 
   // Get the current month relative to the array, calling its index number and value. Using the dateInput varialble here
   let currentMonth = months[dateInput.getMonth()];
@@ -62,7 +74,7 @@ function showDate() {
     btnThirtyOne.innerHTML =`<time datetime="${dateInput}">31</time>`;
     btnThirtyOne.style.display = `flex`;
   } else {
-    btnThirtyOne.innerHTML =`<time datetime="${dateInput}"></time>`;
+    // btnThirtyOne.innerHTML =`<time datetime="${dateInput}"></time>`;
     btnThirtyOne.style.display = `none`;
   };
 
@@ -87,7 +99,7 @@ function showDate() {
 
     if(el.textContent == dateInput.getDate()) {
       console.log(el.textContent == dateInput.getDate(), `${el.textContent}, ${dateInput.getDate()}, ${el}, ${dayNumber}`);
-      // el.parentElement.classList.toggle(`toggleBG`);
+
       if(!el.parentElement.classList.contains(`bgColorOn`)) {
         el.parentElement.classList.add(`bgColorOn`);
       }
@@ -96,8 +108,6 @@ function showDate() {
       el.parentElement.classList.remove(`bgColorOn`);
     }
   });
-
-
 }
 
 // The array of month names below, are strings because it's more efficient to work this way, picking up the month names as array values instead of relying on JS to stringify month names from the Date() object.This applied to the days of the week array as well.
