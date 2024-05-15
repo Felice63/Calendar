@@ -11,16 +11,16 @@
 <body>
     <main>
           <header class="month-indicator">
-            <div class="calendarTop">
+            <section class="calendarTop">
               <span id="month"></span>
               <span id="numOfDays"></span>
-            </div>
-            <div>
+            </section>
+            <section>
               <span>Choose a date</span>
               <!-- The type="datetime-local" attribute can help reduce JavaScript Date Object errors when enumerating month number (for example, January has Month number 0), but you need to handle validation, time zone adjustments, and fallbacks for unsupported browsers in your JavaScript code. -->
               <input type="datetime-local" id="dateInputField">
               <button id="submitDate">Submit</button>
-            </div>                
+            </section>                
           </header>
           <section class="day-of-week">
             <div>Sunday</div>

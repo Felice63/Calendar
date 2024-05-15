@@ -72,7 +72,7 @@ function showDate() {
 
   const monthStart = document.querySelector(`#dayOne`);
 
-  monthStart.style = `grid-column: ${firstDayName.getDay()};`;
+  monthStart.style = `grid-column: ${firstDayName.getDay()+1};`;
 
   console.log(
     `${currentMonth} 1, ${currentYear} is a ${
