@@ -18,6 +18,14 @@ monthAndYear.innerHTML = now.toLocaleDateString(`en-US`, {
   day: 'numeric',
 });
 
+
+let firstDayName = new Date(now.getFullYear(), now.getMonth(), 1);
+
+let monthStart = document.querySelector(`#dayOne`);
+
+monthStart.style = `grid-column: ${firstDayName.getDay()+1};`;
+
+
 // Make the Button 31 variable to control whether a month having 31 days instead of 30 will display. This will be called in the conditional embedded in the showDate() callback
 const btnThirtyOne = document.querySelector("#dayThirtyOne");
 
@@ -82,7 +90,7 @@ function showDate() {
 
   const firstDayName = new Date(dateInput.getFullYear(), dateInput.getMonth(), 1);
 
-  const monthStart = document.querySelector(`#dayOne`);
+  let monthStart = document.querySelector(`#dayOne`);
 
   monthStart.style = `grid-column: ${firstDayName.getDay()+1};`;
 
