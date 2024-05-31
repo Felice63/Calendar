@@ -112,8 +112,18 @@ Doing this with JS to add inline styling depending on the
 
 @media print {
   .date-grid button {
-    height: 15vh;
+    height: 12vh;
     margin: 0;
+    border: 1px solid black;
+  }
+
+  .calendarTop {
+    font-size: 75%;
+}
+
+  .calendarTop+section {
+    position: absolute;
+    display: none;
   }
 }
 
