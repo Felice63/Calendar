@@ -81,12 +81,12 @@ Positioning the first day
 Change the value of grid-column property to indicate where the first day starts
 Doing this with JS to add inline styling depending on the 
 
-.date-grid button:first-child {
+.date-grid div:first-child {
   grid-column: 2; /* First day starts in column 1 (Sunday)  
 }
 */
 
-.date-grid button {
+.date-grid div {
   display: flex;
   position: relative;
   width: 100%;
@@ -96,11 +96,11 @@ Doing this with JS to add inline styling depending on the
   font-size: 1em;
 }
 
-.date-grid button.bgColorOn {
+.date-grid div.bgColorOn {
   background-color: rgb(189, 236, 229);
 }
 
-.date-grid button.bgColorOff {
+.date-grid div.bgColorOff {
   background-color: #f0f0f0;
 }
 
@@ -111,7 +111,7 @@ Doing this with JS to add inline styling depending on the
 /* Media Queries */
 
 @media print {
-  .date-grid button {
+  .date-grid div {
     height: 12vh;
     margin: 0;
     border: 1px solid black;
