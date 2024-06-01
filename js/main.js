@@ -9,7 +9,8 @@ let now = new Date();
 // Get the HTML element with id="month" and assign it to the monthAndYear variable
 let monthAndYear = document.querySelector(`#month`);
 
-// Set innerHTML on monthAndYear to the current date now. This will appear at the top of the calendar inside the section with class="calendarTop".
+// Set innerHTML on monthAndYear to the current date now
+// This will appear at the top of the calendar inside the section with class="calendarTop"
 // The toLocaleDateString() method returns a string with a language sensitive representation of the date portion of this date
 monthAndYear.innerHTML = now.toLocaleDateString(`en-US`, {
   weekday: 'long',
@@ -127,4 +128,3 @@ dayNumber.forEach((el) => {
   return
 
 } // End of showDate function
-
